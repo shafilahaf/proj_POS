@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <t
+        t-name="ProductScreen"
+        t-inherit="point_of_sale.ProductScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+
+       <xpath
+           expr="div[hasclass('product-screen')]"
+            position="replace"
+        >
+            <div class="product-screen screen" t-att-class="{ oe_hidden: !props.isShown }">
+            <div class="screen-full-width">
+                <div class="leftpane pane-border" t-if="!env.isMobile || state.mobile_pane === 'left'">
+                    <OrderWidget/>
+                    <div class="pads">
+                    <t t-if="!isVoidTable">
+                        <div class="control-buttons">
+                            <t t-if="env.isMobile and controlButtons.length > 3">
+                                <div class="control-button" t-on-click="_displayAllControlPopup">More...</div>
+                            </t>
+                            <t t-else="">
+                                <t t-foreach="controlButtons" t-as="cb" t-key="cb.name">
+                                    <t t-component="cb.component" t-key="cb.name"/>
+                                </t>
+                            </t>
+                        </div>
+                    </t>
+                        <div class="subpads">
+                            <t t-if="hasPaymentControlRights">
+                            <t t-set="_actionName">Payment</t>
+                            <ActionpadWidget client="client" actionName="_actionName" t-on-switchpane="switchPane" />
+                            </t>
+                            <t t-if="hasShowNumpadControl and !isVoidTable">
+                            <!-- <NumpadWidget activeMode="state.numpadMode" /> -->
+                            <!-- Make numpadwidget in the center -->
+                            <div class="numpad-widget" style="margin: 0 auto;">
+                                <NumpadWidget activeMode="state.numpadMode" />
+                            </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+                <t t-if="!isVoidTable">
+                    <div class="rightpane" t-if="!env.isMobile || state.mobile_pane === 'right'">
+                        <ProductsWidget mobileSearchBarIsShown="props.mobileSearchBarIsShown"/>
+                        <MobileOrderWidget t-if="env.isMobile" pane="state.mobile_pane" t-on-switchpane="switchPane"/>
+                    </div>
+                </t>
+            </div>
+        </div>
+        </xpath>
+
+ 
+    </t>
+
+
+
+</templates>

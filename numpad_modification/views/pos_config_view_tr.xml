@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="pos_config_view_tr_numpad_modification_inherit" model="ir.ui.view">
+        <field name="name">pos.config.numpad.modification.form.tr.view</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='row mt16 o_settings_container'][3]" position="after">
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="group_payment_id" string="Select Group"/>
+                            <div class="text-muted">Allow Payments</div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="group_payment_id" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 o_setting_box" title="">
+                        <div class="o_setting_right_pane">
+                            <label for="group_change_quantity_id" string="Select Group"/>
+                            <div class="text-muted">Allow Change Quantity</div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="group_change_quantity_id" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="group_show_numpad_id" string="Select Group"/>
+                            <div class="text-muted">Allow Show Numpad</div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="group_show_numpad_id" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 o_setting_box" title="">
+                       <div class="o_setting_right_pane">
+                            <label for="group_refund_id" string="Select Group"/>
+                            <div class="text-muted">Allow Refund Paid Orders</div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="group_refund_id" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

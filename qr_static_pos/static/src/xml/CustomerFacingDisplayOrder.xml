@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="CustomerFacingDisplayHead">
+        <div class="resources">
+            <base t-att-href="origin"/>
+            <meta http-equiv="cache-control" content="no-cache" />
+            <meta http-equiv="pragma" content="no-cache" />
+            <link rel="stylesheet" type="text/css" href="/web/static/lib/bootstrap/css/bootstrap.css"/>
+            <link rel="stylesheet" type="text/css" href="/web/static/lib/fontawesome/css/font-awesome.css"/>
+            <link rel="stylesheet" type="text/css" href="/point_of_sale/static/src/css/customer_facing_display.css"/>
+        </div>
+    </t>
+
+    <t t-inherit="point_of_sale.CustomerFacingDisplayOrder" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos-payment_info_details')]" position="before">
+            <t t-if="order">
+                <div class="pos-customer_qris" name="QRIS">
+                    <t t-if="order.getqrDynamic()">
+                        <div class="qris" style="width: 100%; max-width: 100%;">
+                            <div class="card bg-white" style="width: 100%; max-width: 100%;">
+                                <h3 class="text-center" style="color: black;">Scan Here</h3>                                
+                                <div class="card-body" style="display: flex; justify-content: center; align-items: center; padding: 0;">
+                                    <img style="height: 70%; width: 70%" t-att-src="order.getqrDynamic()"/>
+                                </div>
+                            </div>
+                        </div>                
+                    </t>
+                </div>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('pos-total')]" position="replace">
+            <div class="pos-total">
+                <div>
+                    <span class="total-amount-formatting">TOTAL</span>
+                </div>
+                <div>
+                    <span class="pos_total-amount" t-esc="pos.format_currency(order and order.get_total_with_tax() + order.get_rounding_applied() || 0)"/>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('pos-odoo_logo_container')]" position="replace">
+        </xpath>
+    </t>
+</templates>
+

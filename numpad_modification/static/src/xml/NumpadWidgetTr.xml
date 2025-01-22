@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="NumpadWidget"
+        t-inherit="point_of_sale.NumpadWidget"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+
+        <!-- Hide Numpad -->
+            <xpath expr="div[hasclass('numpad')]" position="attributes">
+                <attribute name="t-att-class">{'d-none': !hasShowNumpadControl}</attribute>
+                <attribute name="t-att-hidden">!hasShowNumpadControl</attribute>
+            </xpath>
+
+        <xpath expr="div[hasclass('numpad')]//button[hasclass('numpad-minus')]" position="attributes">
+            <attribute name="t-att-class">{'disabled-mode': !hasquantityControl}</attribute>
+            <attribute name="t-att-disabled">!hasquantityControl</attribute>
+        </xpath>
+
+        <xpath expr="div[hasclass('numpad')]//button[hasclass('numpad-backspace')]" position="attributes">
+            <attribute name="t-att-class">{'disabled-mode': !hasquantityControl}</attribute>
+            <attribute name="t-att-disabled">!hasquantityControl</attribute>
+        </xpath>
+
+        <xpath expr="//button[@class='mode-button' and text()='Qty']" position="attributes">
+            <attribute name="t-att-class">{'disabled-mode': !hasquantityControl}</attribute>
+            <attribute name="t-att-disabled">!hasquantityControl</attribute>
+        </xpath>
+    </t>
+
+</templates>

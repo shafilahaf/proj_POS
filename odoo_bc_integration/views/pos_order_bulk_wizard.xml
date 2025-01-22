@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_order_bulk_wizard_view_form" model="ir.ui.view">
+        <field name="name">pos.order.bulk.wizard.view.form</field>
+        <field name="model">pos.order.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="description" />
+                        <field name="start_datetime" />
+                        <field name="end_datetime" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="bulk_insert_to_bc" string="Send BC" type="object" class="oe_highlight"  />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- act window -->
+    <record id="pos_order_bulk_wizard_action" model="ir.actions.act_window">
+        <field name="name">POS Order Bulk Wizard</field>
+        <field name="res_model">pos.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pos_order_bulk_wizard_view_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="tr_order_bulk_menu" name="Bulk Order" parent="point_of_sale.menu_point_config_product" action="pos_order_bulk_wizard_action"/>
+
+</odoo>

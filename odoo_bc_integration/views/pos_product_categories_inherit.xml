@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_pos_category_form_view_inherit" model="ir.ui.view">
+        <field name="name">pos.category.form.inherit</field>
+        <field name="model">pos.category</field>
+        <field name="inherit_id" ref="point_of_sale.product_pos_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="before">
+                <field name="bc_id_guid" />
+                <field name="need_to_be_sent" />
+            </xpath>
+            <xpath expr='/form/*' position="before">
+                <header>
+                    <button name="apply_to_all_products" string="Apply Image to Product" class="oe_highlight" type="object" />
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

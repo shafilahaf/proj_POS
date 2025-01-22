@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_company_form_inherit" model="ir.ui.view">
+        <field name="name">res.company.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='phone']" position="before">
+                <field name="default_customer_code" options="{'no_create': False, 'no_create_edit': False}"/>
+                <field name="company_bc_id" />
+                <field name="url_api" />
+                <field name="url_api_v2" />
+                <field name="username_api" />
+                <field name="password_api" password="True"/>
+                <field name="default_promo_uom" />
+                <field name="integrate_to_bc" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

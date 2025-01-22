@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="company_bc_view_tree" model="ir.ui.view">
+        <field name="name">company.bc.view.tree</field>
+        <field name="model">company.bc</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="id_bc" />
+                <field name="name" />
+                <field name="displayName" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- act window -->
+    <record id="company_bc_action" model="ir.actions.act_window">
+        <field name="name">Company BC</field>
+        <field name="res_model">company.bc</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="company_bc_view_tree" />
+    </record>
+
+    <menuitem id="tr_company_bc_list_menu" name="BC Company List" parent="point_of_sale.menu_point_config_product" action="company_bc_action"/>
+
+</odoo>

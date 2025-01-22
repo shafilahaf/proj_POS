@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_product_form_inherit" model="ir.ui.view">
+        <field name="name">product.product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='detailed_type']" position="before">
+                <field name="bc_id_guid" />
+                <field name="discount_type" />
+                <field name="need_to_be_sent" />
+            </xpath>
+
+            <xpath expr="//field[@name='uom_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+
+            <!-- <xpath expr="//field[@name='default_code']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath> -->
+
+            <xpath expr="//field[@name='list_price']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='pos_categ_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

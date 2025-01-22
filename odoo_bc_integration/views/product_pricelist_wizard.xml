@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_pricelist_view_form" model="ir.ui.view">
+        <field name="name">product.pricelist.wizard.view.form</field>
+        <field name="model">pos.product.pricelist.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="uploadfile" />
+                        <field name="product_pricelist_id" invisible="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="fnImportProductPricelistLine" string="Import Excel" type="object" class="oe_highlight"  />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

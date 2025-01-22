@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="tr_pos_change_qty" model="res.groups">
+            <field name="name">Allow Change Quantity (PoS)</field>
+            <field name="category_id" ref="base.module_category_services_trustapos" />
+        </record>
+
+        <record id="tr_pos_show_numpad" model="res.groups">
+            <field name="name">Allow Show Numpad (PoS)</field>
+            <field name="category_id" ref="base.module_category_services_trustapos" />
+        </record>
+
+        <record id="tr_pos_payment" model="res.groups">
+            <field name="name">Allow Payment (PoS)</field>
+            <field name="category_id" ref="base.module_category_services_trustapos" />
+        </record>
+
+        <record id="tr_pos_delete_order" model="res.groups">
+            <field name="name">Allow Delete Order (PoS)</field>
+            <field name="category_id" ref="base.module_category_services_trustapos" />
+        </record>
+
+        <record id="tr_pos_refund_order" model="res.groups">
+            <field name="name">Allow Refund Order (PoS)</field>
+            <field name="category_id" ref="base.module_category_services_trustapos" />
+        </record>
+    
+    </data>
+    
+
+</odoo>
