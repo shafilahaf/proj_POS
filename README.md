@@ -1,5 +1,5 @@
 # CUSTOM ODOO POS MODULE
-
+URL : [POS](http://202.93.227.117:8069/web?db=Kopitien67) [confidential and for authorized users only]
 This repository contains custom modifications for the Odoo POS system, specifically tailored to meet the needs of our clients. The following modules are included in this project:
 1. Numpad Modification
    - Customization of the on-screen numpad for operations
